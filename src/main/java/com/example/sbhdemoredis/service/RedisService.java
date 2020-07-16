@@ -34,12 +34,12 @@ public class RedisService {
         return redisRepo.findAll();
     }
 
-    @CachePut(value = "books", key = "#book.id")
+    @CachePut(value = "books", key = "#book")
     public Book create(Book book) {
         return redisRepo.save(book);
     }
 
-    @CachePut(value = "books", key = "#id")
+    @CachePut(value = "books", key = "#book")
     public Book update(Integer id, Book book) {
         Book bookFromDb = redisRepo.findById(id).orElseThrow(BookNotFoundException::new);
         bookFromDb.setTitle(book.getTitle());
