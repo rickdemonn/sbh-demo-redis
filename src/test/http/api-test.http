@@ -18,5 +18,15 @@ Content-Type: application/json
     "author": "Yakybovich"
 }
 
-
 ###
+
+PUT http://localhost:8080/redis/10
+Accept: application/json
+Content-Type: application/json
+
+{
+    "title": "Ogonek",
+    "author": "Yakybovich"
+}
+###
+DELETE http://localhost:8080/redis/10
