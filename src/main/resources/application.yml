@@ -1,6 +1,8 @@
 spring:
   application:
     name: sbh-demo-redis
+  cache:
+    type: redis
 
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
