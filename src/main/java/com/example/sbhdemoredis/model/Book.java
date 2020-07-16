@@ -3,6 +3,7 @@ package com.example.sbhdemoredis.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.redis.core.RedisHash;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "books")
+@RedisHash("Books")
 public class Book implements Serializable {
 
     @Id

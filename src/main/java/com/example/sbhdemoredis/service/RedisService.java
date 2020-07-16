@@ -3,6 +3,7 @@ package com.example.sbhdemoredis.service;
 import com.example.sbhdemoredis.exception.BookNotFoundException;
 import com.example.sbhdemoredis.model.Book;
 import com.example.sbhdemoredis.repo.RedisRepo;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,11 +17,15 @@ public class RedisService {
         this.redisRepo = redisRepo;
     }
 
+    @SneakyThrows
     public Book getOne(Integer id) {
+        Thread.sleep(3000);
         return redisRepo.findById(id).orElseThrow(BookNotFoundException::new);
     }
 
+    @SneakyThrows
     public List<Book> findAll() {
+        Thread.sleep(3000);
         return redisRepo.findAll();
     }
 
