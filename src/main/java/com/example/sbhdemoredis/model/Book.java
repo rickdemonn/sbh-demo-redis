@@ -3,7 +3,7 @@ package com.example.sbhdemoredis.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.redis.core.RedisHash;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Entity
 @Table(name = "books")
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Book implements Serializable {
 
     @Id

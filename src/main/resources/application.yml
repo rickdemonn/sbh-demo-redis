@@ -1,9 +1,4 @@
 spring:
-  cache:
-    type: redis
-  redis:
-    host: localhost
-    port: 6379
   application:
     name: sbh-demo-redis
 
@@ -16,6 +11,11 @@ spring:
     open-in-view: false
     properties:
       hibernate:
+        cache:
+          use_second_level_cache: true
+          use_query_cache: true
+          region.factory_class: org.redisson.hibernate.RedissonRegionFactory
+          redisson.config: redisson.yaml
         order_inserts: true
         order_updates: true
         jdbc:
